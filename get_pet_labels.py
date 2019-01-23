@@ -50,29 +50,33 @@ def get_pet_labels(image_dir):
     # Processes through each file in the directory, extracting only the words
     # of the file that contain the pet image label
     for filename in range(0, len(in_files), 1):
+
+      # Skips file if starts with . (like .DS_Store of Mac OSX) because it
+      # isn't an pet image file
+      if in_files[filename][0] != ".":
            
-      # Creates temporary label variable to hold pet label name extracted 
-      pet_label = ""
+        # Creates temporary label variable to hold pet label name extracted
+        pet_label = ""
 
-      # Splits filenames string by _ to break into words 
-      filename_list = in_files[filename].split('_')
+        # Splits filenames string by _ to break into words
+        filename_list = in_files[filename].split('_')
 
-      # Pop out only the non-alpabetic last element
-      if filename_list[len(filename_list)-1].isalpha() == False:
-        filename_list.pop(len(filename_list)-1)
+        # Pop out only the non-alpabetic last element
+        if filename_list[len(filename_list)-1].isalpha() == False:
+          filename_list.pop(len(filename_list)-1)
 
-      # Join with seperator, space to get pet_label
-      seperator = ' '
-      pet_label = seperator.join(filename_list).lower()
-      
-      # If filename doesn't already exist in dictionary add it and it's
-      # pet label - otherwise print an error message because indicates 
-      # duplicate files (filenames)
-      if in_files[filename] not in results_dic:
-        results_dic[in_files[filename]] = [pet_label]
-          
-      else:
-        print("** Warning: Duplicate files exist in directory:", in_files[filename])
+        # Join with seperator, space to get pet_label
+        seperator = ' '
+        pet_label = seperator.join(filename_list).lower()
+
+        # If filename doesn't already exist in dictionary add it and it's
+        # pet label - otherwise print an error message because indicates
+        # duplicate files (filenames)
+        if in_files[filename] not in results_dic:
+          results_dic[in_files[filename]] = [pet_label]
+
+        else:
+          print("** Warning: Duplicate files exist in directory:", in_files[filename])
 
     # Replace None with the results_dic dictionary that you created with this
     # function
