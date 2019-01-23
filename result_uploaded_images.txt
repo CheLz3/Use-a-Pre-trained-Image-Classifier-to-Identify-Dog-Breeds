@@ -4,9 +4,7 @@ pct_correct_dogs    : 100.000000
 pct_correct_breed   : 100.000000
 pct_correct_notdogs : 100.000000
 
-Total Elapsed Runtime for alexnet/resnet: 0:0:15
+Total Elapsed Runtime for alexnet/resnet: 0:0:16
 Total Elapsed Runtime for vgg: 0:0:18
 
 Given our results for uploaded images, the "best" model architecture can be either alexnet or resnet. Even though the percentage of classification between all 3 models where the same, the run time for vgg was higher than that of alexnet/resnet.
-
-But
